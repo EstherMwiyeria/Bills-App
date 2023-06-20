@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assessments.databinding.ActivityMain2Binding
-//import com.example.billz.databinding.ActivityMain2Binding
+
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivityMain2Binding
@@ -15,21 +15,21 @@ class MainActivity2 : AppCompatActivity() {
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogin.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
 
             val isValid = validateForm()
 
             if (isValid) {
 
-                val username = binding.etUsername.text.toString()
-                val password = binding.etPassword.text.toString()
+                val username = binding.etUserName.text.toString()
+                val password = binding.etPass.text.toString()
 
 
                 if (username == "your_username" && password == "your_password") {
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 } else {
-                    // Login failed, show an error message
+
                     binding.tvError.text = "Invalid username or password"
                 }
             }
@@ -37,7 +37,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun validateForm(): Boolean {
-        val username = binding.etUsername.text.toString()
+        val username = binding.etUserName.text.toString()
         val password = binding.etPassword.text.toString()
 
 
